@@ -1,4 +1,13 @@
 
+Add to a git project:
+```
+git submodule add https://github.com/EloiStree/2026_04_12_gdp_nerf_dart.git addons/2026_04_12_gdp_nerf_dart
+```
+Add to a not git project
+```
+git clone https://github.com/EloiStree/2026_04_12_gdp_nerf_dart.git addons/2026_04_12_gdp_nerf_dart
+```
+
 # Godot: Nerf Dart
 
 > Nerf Dart and muzzle to make a jam game in Godot.
