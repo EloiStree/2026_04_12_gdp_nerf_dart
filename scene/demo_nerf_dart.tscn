@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://8rwivwmf5swp"]
+
+[ext_resource type="PackedScene" uid="uid://cun4srlmewkty" path="res://addons/2026_04_12_gdp_nerf_dart/scene/element/nerf_dart_muzzle_prefab.tscn" id="1_4muwh"]
+[ext_resource type="PackedScene" uid="uid://x20m6sqnc6jf" path="res://addons/2026_04_12_gdp_nerf_dart/3d/nerf_gun.glb" id="2_1k2ns"]
+[ext_resource type="PackedScene" uid="uid://iwp4gstfmtsr" path="res://addons/2026_04_12_gdp_nerf_dart/3d/nerf_dart_low_poly.glb" id="2_kcsy1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1k2ns"]
+
+[node name="DemoNerfDart" type="Node3D" unique_id=1182818562]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=962145080]
+transform = Transform3D(1, 0, 0, 0, 0.99076915, 0.13555995, 0, -0.13555995, 0.99076915, 0, 0.71588326, 0.900254)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1958903282]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1987620527]
+anchors_preset = -1
+anchor_right = 0.043
+anchor_bottom = 0.071
+offset_right = -0.5360031
+offset_bottom = -0.008003235
+text = "Fire"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=95962315]
+transform = Transform3D(0.800815, -0.27397513, 0.532572, -1.4901161e-08, 0.8892328, 0.45745492, -0.59891176, -0.36633676, 0.71211094, 0, 0, 0)
+
+[node name="NerfGun" type="Node3D" parent="." unique_id=998032416]
+
+[node name="nerf_gun" parent="NerfGun" unique_id=604963580 instance=ExtResource("2_1k2ns")]
+transform = Transform3D(-0.24, 0, 3.623899e-08, 0, 0.24, 0, -3.623899e-08, 0, -0.24, 0, 0, 0)
+
+[node name="NerfDartMuzzle" parent="NerfGun" unique_id=636343758 instance=ExtResource("1_4muwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+muzzle_speed = 14.0
+
+[node name="nerf_dart_low_poly" parent="NerfGun/NerfDartMuzzle" unique_id=160730341 instance=ExtResource("2_kcsy1")]
+transform = Transform3D(-0.285, 0, 4.3033804e-08, 0, 0.285, 0, -4.3033804e-08, 0, -0.285, 0, 0, 0)
+
+[node name="debug_bullet_size" type="MeshInstance3D" parent="NerfGun" unique_id=263634112]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_1k2ns")
+
+[node name="nerf_dart_low_poly" parent="." unique_id=237908500 instance=ExtResource("2_kcsy1")]
+transform = Transform3D(0.24, 0, 0, 0, -0.24, -3.623899e-08, 0, 3.623899e-08, -0.24, -1.2653809, 0.06294251, -0.57580566)
+
+[connection signal="button_down" from="CanvasLayer/Button" to="NerfGun/NerfDartMuzzle" method="shoot"]
