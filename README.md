@@ -1,5 +1,14 @@
-# 2026_04_12_gdp_nerf_dart
-Nerf Dart and Muzzle to make jam game in Godot.
+
+# Godot: Nerf Dart
+
+> Nerf Dart and muzzle to make a jam game in Godot.
+
+Add the muzzle scene and connect it to shooting.
+Adjust the speed, and you’re good to go.
+
+Just for prototyping.
+
+
 <img width="1733" height="460" alt="image" src="https://github.com/user-attachments/assets/9e806819-0d74-4f17-98b9-92ba457f3153" />
 
 
