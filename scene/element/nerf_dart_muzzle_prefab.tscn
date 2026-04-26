@@ -2,9 +2,19 @@
 
 [ext_resource type="Script" uid="uid://qlvrxm6f113v" path="res://addons/2026_04_12_gdp_nerf_dart/script/nerf_dart_muzzle.gd" id="1_cbuxf"]
 [ext_resource type="PackedScene" uid="uid://cg7fqdgyuxiux" path="res://addons/2026_04_12_gdp_nerf_dart/scene/element/nerf_dart_prefab.tscn" id="2_gl2nv"]
+[ext_resource type="PackedScene" uid="uid://x20m6sqnc6jf" path="res://addons/2026_04_12_gdp_nerf_dart/3d/nerf_gun.glb" id="3_gl2nv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gl2nv"]
 
 [node name="NerfDartMuzzle" type="Node3D" unique_id=636343758 node_paths=PackedStringArray("muzzle_node")]
-transform = Transform3D(1, 0, 0, 0, 0.9021867, -0.43134582, 0, 0.43134582, 0.9021867, 0, 0, 0)
 script = ExtResource("1_cbuxf")
 dart_scene = ExtResource("2_gl2nv")
 muzzle_node = NodePath(".")
+
+[node name="nerf_gun" parent="." unique_id=1316302616 instance=ExtResource("3_gl2nv")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+
+[node name="10cm" type="MeshInstance3D" parent="." unique_id=1063891659]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_gl2nv")
